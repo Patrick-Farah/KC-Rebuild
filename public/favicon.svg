@@ -1,0 +1,5 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KC favicon">
+  <rect width="64" height="64" rx="14" fill="#003366"/>
+  <path d="M16 18h8v12l12-12h11L33 33l16 18H38L24 35v16h-8V18Z" fill="#FFFFFF"/>
+  <path d="M46 13c-10-7-24-6-33 3 4-9 13-15 24-15 8 0 15 3 20 8l-11 4Z" fill="#F7C948" opacity="0.95"/>
+</svg>
