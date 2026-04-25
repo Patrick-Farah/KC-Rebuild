@@ -20,6 +20,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#003366" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -28,8 +29,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="KlimaContra home">
-          <span class="brand-mark">KC</span>
-          <span>{company.name}</span>
+          <img src="/images/brand/klimacontra-logo.svg" alt="KlimaContra" />
         </a>
         <nav class="nav" aria-label="Main navigation">
           {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
@@ -44,7 +44,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <strong>{company.name}</strong>
+          <img class="footer-logo" src="/images/brand/klimacontra-logo.svg" alt="KlimaContra" />
           <p>{company.positioning}</p>
         </div>
         <div>
@@ -77,19 +77,11 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
   }
 
-  .brand-mark {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    border-radius: 12px;
-    background: var(--color-primary);
-    color: white;
+  .brand img {
+    width: 210px;
+    height: auto;
   }
 
   .nav {
@@ -117,9 +109,17 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     gap: 28px;
   }
 
+  .footer-logo {
+    width: 230px;
+    max-width: 100%;
+    background: white;
+    border-radius: 14px;
+    padding: 10px 12px;
+  }
+
   .site-footer p {
     color: rgba(255, 255, 255, 0.72);
-    margin-top: 10px;
+    margin-top: 18px;
   }
 
   @media (max-width: 900px) {
@@ -127,6 +127,10 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     .nav {
       align-items: flex-start;
       flex-direction: column;
+    }
+
+    .brand img {
+      width: 190px;
     }
 
     .nav {
