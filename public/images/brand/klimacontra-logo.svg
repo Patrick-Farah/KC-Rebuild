@@ -1,0 +1,17 @@
+<svg width="760" height="160" viewBox="0 0 760 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">KlimaContra logo</title>
+  <desc id="desc">Klimacontra wordmark and KC symbol for the website rebuild.</desc>
+  <rect width="760" height="160" fill="none"/>
+  <g transform="translate(8 8)">
+    <circle cx="72" cy="72" r="68" fill="#0B1720"/>
+    <circle cx="72" cy="72" r="56" fill="#FFFFFF"/>
+    <path d="M36 49h15v23l22-23h20L66 78l30 37H75L51 84v31H36V49Z" fill="#0B1720"/>
+    <path d="M104 52c-20-13-48-11-65 7 7-18 25-31 47-31 15 0 28 5 38 14l-20 10Z" fill="#005554"/>
+    <path d="M40 113c20 13 48 11 65-7-7 18-25 31-47 31-15 0-28-5-38-14l20-10Z" fill="#F7C948"/>
+  </g>
+  <g transform="translate(176 47)">
+    <text x="0" y="48" font-family="Aldrich, Arial, sans-serif" font-size="48" letter-spacing="0.5" fill="#0B1720">KlimaContra</text>
+    <rect x="0" y="72" width="266" height="5" rx="2.5" fill="#F7C948"/>
+    <text x="0" y="108" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#005554">HVAC MANUFACTURING</text>
+  </g>
+</svg>
