@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { productCategories } from '../../../data/product-categories';
+
+export function getStaticPaths() {
+  return productCategories.map((category) => ({
+    params: { category: category.slug },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props;
+---
+
+<BaseLayout title={category.title} description={category.description}>
+  <section class="section">
+    <div class="container page-head">
+      <p class="eyebrow">Product family</p>
+      <h1>{category.title}</h1>
+      <p>{category.description}</p>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <p class="eyebrow">Subcategories</p>
+      <h2>Initial structure for this product family.</h2>
+      <div class="grid subcategory-grid">
+        {category.children.map((item) => (
+          <article class="card">
+            <h3>{item}</h3>
+            <p>Add product cards, specifications, downloads, and related applications for this subcategory.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { max-width: 840px; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
+  .subcategory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 800px) { .subcategory-grid { grid-template-columns: 1fr; } }
+</style>
