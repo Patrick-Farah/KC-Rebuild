@@ -2,6 +2,24 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { company } from '../data/company';
 import { productCategories } from '../data/product-categories';
+
+const projectHighlights = [
+  {
+    title: 'King Salman Project',
+    image: '/images/projects/king-salman.png',
+    label: 'Project reference'
+  },
+  {
+    title: 'Solitaire Mall',
+    image: '/images/projects/solitaire-mall.jpg',
+    label: 'Commercial project'
+  },
+  {
+    title: 'Trilogy Project',
+    image: '/images/projects/trilogy-project.jpg',
+    label: 'Project reference'
+  }
+];
 ---
 
 <BaseLayout title={company.name} description={company.positioning}>
@@ -16,10 +34,13 @@ import { productCategories } from '../data/product-categories';
           <a class="button secondary" href="/contact/">Request Support</a>
         </div>
       </div>
-      <div class="hero-panel">
-        <span>Product Catalogue</span>
-        <strong>{productCategories.length}</strong>
-        <p>Primary product families ready to be converted into structured product pages.</p>
+      <div class="hero-media">
+        <img src="/images/projects/king-salman.png" alt="Klimacontra project reference" />
+        <div class="hero-panel">
+          <span>Product Catalogue</span>
+          <strong>{productCategories.length}</strong>
+          <p>Primary product families ready to be converted into structured product pages.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -39,6 +60,24 @@ import { productCategories } from '../data/product-categories';
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Selected references</p>
+      <h2>Legacy project images migrated into the clean rebuild structure.</h2>
+      <div class="grid project-grid">
+        {projectHighlights.map((project) => (
+          <article class="project-card">
+            <img src={project.image} alt={project.title} />
+            <div>
+              <span>{project.label}</span>
+              <h3>{project.title}</h3>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -51,7 +90,7 @@ import { productCategories } from '../data/product-categories';
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.35fr 0.65fr;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: 42px;
     align-items: center;
   }
@@ -74,9 +113,22 @@ import { productCategories } from '../data/product-categories';
     margin-top: 30px;
   }
 
-  .hero-panel {
+  .hero-media {
+    display: grid;
+    gap: 18px;
+  }
+
+  .hero-media > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: var(--radius-lg);
-    padding: 34px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-panel {
+    border-radius: var(--radius-md);
+    padding: 24px;
     background: var(--color-primary);
     color: white;
     box-shadow: var(--shadow-soft);
@@ -92,8 +144,8 @@ import { productCategories } from '../data/product-categories';
 
   .hero-panel strong {
     display: block;
-    margin: 18px 0;
-    font-size: 5rem;
+    margin: 10px 0;
+    font-size: 3.6rem;
     line-height: 1;
   }
 
@@ -101,7 +153,8 @@ import { productCategories } from '../data/product-categories';
     color: rgba(255, 255, 255, 0.78);
   }
 
-  .category-grid {
+  .category-grid,
+  .project-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 32px;
   }
@@ -111,9 +164,36 @@ import { productCategories } from '../data/product-categories';
     font-weight: 700;
   }
 
+  .project-card {
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    background: white;
+    box-shadow: 0 8px 24px rgba(11, 23, 32, 0.05);
+  }
+
+  .project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .project-card div {
+    padding: 22px;
+  }
+
+  .project-card span {
+    color: var(--color-teal);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
   @media (max-width: 900px) {
     .hero-grid,
-    .category-grid {
+    .category-grid,
+    .project-grid {
       grid-template-columns: 1fr;
     }
   }
