@@ -29,7 +29,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="KlimaContra home">
-          <img src="/images/brand/klimacontra-logo.svg" alt="KlimaContra" />
+          <img src="/images/brand/klimacontra-logo-horiz.png" alt="KlimaContra" />
         </a>
         <nav class="nav" aria-label="Main navigation">
           {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
@@ -44,7 +44,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <img class="footer-logo" src="/images/brand/klimacontra-logo.svg" alt="KlimaContra" />
+          <img class="footer-logo" src="/images/brand/klimacontra-logo-horiz.png" alt="KlimaContra" />
           <p>{company.positioning}</p>
         </div>
         <div>
@@ -80,7 +80,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
   }
 
   .brand img {
-    width: 210px;
+    width: 188px;
     height: auto;
   }
 
@@ -110,7 +110,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
   }
 
   .footer-logo {
-    width: 230px;
+    width: 210px;
     max-width: 100%;
     background: white;
     border-radius: 14px;
@@ -130,7 +130,7 @@ const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
     }
 
     .brand img {
-      width: 190px;
+      width: 180px;
     }
 
     .nav {
