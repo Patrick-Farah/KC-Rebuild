@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Downloads" description="Klimacontra catalogues, brochures, datasheets, and certificates.">
+  <section class="section">
+    <div class="container page-head">
+      <p class="eyebrow">Downloads</p>
+      <h1>Catalogues, datasheets, and technical documents.</h1>
+      <p>Use this page as a controlled document library for product catalogues, datasheets, certificates, and technical PDFs.</p>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container grid download-grid">
+      {['Product Catalogues', 'Technical Datasheets', 'Certificates', 'Company Profile'].map((item) => (
+        <article class="card">
+          <h2>{item}</h2>
+          <p>Add document title, version, file size, language, and download link.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { max-width: 840px; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
+  .download-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 800px) { .download-grid { grid-template-columns: 1fr; } }
+</style>
