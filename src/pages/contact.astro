@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+---
+
+<BaseLayout title="Contact" description="Contact Klimacontra for HVAC products, engineering support, and project requests.">
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1>Request product, project, or technical support.</h1>
+        <p>Replace this starter form with the final contact workflow, CRM integration, or email routing setup.</p>
+      </div>
+      <aside class="card">
+        <h2>{company.name}</h2>
+        <p>{company.phone}</p>
+        <p>{company.email}</p>
+        <p>{company.website}</p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+  }
+
+  @media (max-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
