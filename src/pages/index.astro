@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+import { productCategories } from '../data/product-categories';
+---
+
+<BaseLayout title={company.name} description={company.positioning}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">HVAC manufacturing and engineering</p>
+        <h1>Air movement, air distribution, filtration, and fire-safety systems built for demanding projects.</h1>
+        <p class="lead">{company.positioning}</p>
+        <div class="actions">
+          <a class="button" href="/products/">Explore Products</a>
+          <a class="button secondary" href="/contact/">Request Support</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <span>Product Catalogue</span>
+        <strong>{productCategories.length}</strong>
+        <p>Primary product families ready to be converted into structured product pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <p class="eyebrow">Product families</p>
+      <h2>Organized around how customers search and specify HVAC products.</h2>
+      <div class="grid category-grid">
+        {productCategories.map((category) => (
+          <article class="card">
+            <h3>{category.title}</h3>
+            <p>{category.description}</p>
+            <small>{category.children.join(' · ')}</small>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 110px 0 90px;
+    background:
+      radial-gradient(circle at 78% 20%, rgba(247, 201, 72, 0.25), transparent 28%),
+      linear-gradient(135deg, #f7fafb 0%, #ffffff 48%, #eaf1f5 100%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 42px;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
+    letter-spacing: -0.06em;
+  }
+
+  .lead {
+    max-width: 720px;
+    color: var(--color-muted);
+    font-size: 1.14rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .hero-panel {
+    border-radius: var(--radius-lg);
+    padding: 34px;
+    background: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-panel span {
+    color: var(--color-accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+  }
+
+  .hero-panel strong {
+    display: block;
+    margin: 18px 0;
+    font-size: 5rem;
+    line-height: 1;
+  }
+
+  .hero-panel p {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 32px;
+  }
+
+  small {
+    color: var(--color-muted);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
