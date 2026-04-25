@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+---
+
+<BaseLayout title="Solutions" description="HVAC solutions by application and market.">
+  <section class="section">
+    <div class="container page-head">
+      <p class="eyebrow">Solutions</p>
+      <h1>Application-led HVAC solutions.</h1>
+      <p>Use this page to group Klimacontra capabilities by customer use case instead of only by product category.</p>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container grid solution-grid">
+      {company.markets.map((market) => (
+        <article class="card">
+          <h2>{market}</h2>
+          <p>Add the relevant product families, project examples, compliance needs, and buyer concerns for this application.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { max-width: 840px; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
+  .solution-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .solution-grid { grid-template-columns: 1fr; } }
+</style>
