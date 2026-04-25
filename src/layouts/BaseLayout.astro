@@ -1,0 +1,140 @@
+---
+import '../styles/global.css';
+import { navigation } from '../data/navigation';
+import { company } from '../data/company';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = company.positioning } = Astro.props;
+const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#003366" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="KlimaContra home">
+          <span class="brand-mark">KC</span>
+          <span>{company.name}</span>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>{company.name}</strong>
+          <p>{company.positioning}</p>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <p>{company.phone}<br />{company.email}</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .header-inner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  .nav a:hover {
+    color: var(--color-primary);
+  }
+
+  .site-footer {
+    padding: 54px 0;
+    background: var(--color-ink);
+    color: white;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 28px;
+  }
+
+  .site-footer p {
+    color: rgba(255, 255, 255, 0.72);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .header-inner,
+    .nav {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .nav {
+      padding-bottom: 18px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
