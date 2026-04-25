@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Certifications" description="Klimacontra certifications, approvals, and quality evidence.">
+  <section class="section">
+    <div class="container page-head">
+      <p class="eyebrow">Certifications</p>
+      <h1>Quality, compliance, and approvals.</h1>
+      <p>Use this page to present certificates, product approvals, testing standards, and quality documents in a structured way.</p>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container grid cert-grid">
+      {['Quality Management', 'Fire & Smoke Standards', 'Product Testing', 'Manufacturing Compliance'].map((item) => (
+        <article class="card">
+          <h2>{item}</h2>
+          <p>Add certificate logo, issuing body, certificate number, validity, downloadable proof, and related products.</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { max-width: 840px; }
+  h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); }
+  .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 800px) { .cert-grid { grid-template-columns: 1fr; } }
+</style>
